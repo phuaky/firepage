@@ -6,6 +6,7 @@
 <title>fire page — example (reply to a prospect)</title>
 <style>
   :root {
+    color-scheme: light;
     --paper: #f6f3ec; --ink: #1f1d1a; --muted: #6b665d; --line: #d9d3c6; --accent: #9a3b26; --ok: #3f6b3a;
   }
   * { box-sizing: border-box; }
@@ -41,11 +42,6 @@
   .finish .cta { display: inline-block; border: 1px solid var(--ink); padding: 6px 12px; text-decoration: none; color: var(--ink); font-weight: 700; }
   .finish .send { color: var(--accent); font-weight: 700; }
   .time { text-align: center; color: var(--muted); margin-top: 40px; }
-  @media (prefers-color-scheme: dark) {
-    :root { --paper: #201e1b; --ink: #ece7dd; --muted: #9a948a; --line: #38352f; --accent: #d98b6f; --ok: #8bbf84; }
-    .stamp, details { background: #262320; }
-    .finish .cta { color: var(--ink); }
-  }
 </style>
 </head>
 <body>
