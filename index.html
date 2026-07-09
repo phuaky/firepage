@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>fire page — example (reply to a prospect)</title>
+<style>
+  :root {
+    --paper: #f6f3ec; --ink: #1f1d1a; --muted: #6b665d; --line: #d9d3c6; --accent: #9a3b26; --ok: #3f6b3a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.55 Charter, Georgia, "Times New Roman", serif; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 48px 24px 96px; }
+  h1 { font-size: 26px; font-weight: 700; margin: 0 0 4px; text-wrap: balance; }
+  .lede { color: var(--muted); text-wrap: pretty; margin: 0 0 28px; }
+  .mono { font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
+  .stamp { border: 1px solid var(--line); background: #fffdf8; padding: 14px 16px; margin: 0 0 28px; }
+  .stamp .mono { color: var(--ok); }
+  .stamp ul { margin: 8px 0 0; padding-left: 18px; }
+  .stamp li { margin: 2px 0; }
+  section { margin: 0 0 28px; }
+  section > .mono { display: block; margin-bottom: 8px; }
+  details { border: 1px solid var(--line); background: #fffdf8; padding: 0 16px; }
+  summary { list-style: none; cursor: pointer; padding: 14px 0; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--muted); font-weight: 400; }
+  details[open] summary::after { content: "\2013"; }
+  details[open] .draft { padding-bottom: 16px; }
+  .draft { white-space: pre-wrap; font-family: inherit; }
+  button { font: inherit; font-size: 14px; background: var(--ink); color: var(--paper); border: 0; padding: 8px 14px; cursor: pointer; }
+  button:active { opacity: .8; }
+  .copyrow { display: flex; gap: 8px; align-items: center; margin: 10px 0 0; }
+  .copyrow .note { color: var(--muted); font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; margin: 4px 0 0; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  th { width: 34%; font-weight: 700; }
+  td { color: var(--muted); }
+  .finish { border: 1px solid var(--ink); padding: 8px 18px; }
+  .finish li { margin: 12px 0; }
+  .finish .cta { display: inline-block; border: 1px solid var(--ink); padding: 6px 12px; text-decoration: none; color: var(--ink); font-weight: 700; }
+  .finish .send { color: var(--accent); font-weight: 700; }
+  .time { text-align: center; color: var(--muted); margin-top: 40px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #201e1b; --ink: #ece7dd; --muted: #9a948a; --line: #38352f; --accent: #d98b6f; --ok: #8bbf84; }
+    .stamp, details { background: #262320; }
+    .finish .cta { color: var(--ink); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>reply to the prospect you&rsquo;ve been sitting on</h1>
+  <p class="lede">they asked a question 9 days ago. the reply has been drafted for 8 of them.</p>
+
+  <div class="stamp">
+    <span class="mono">verified · mar 14 · source: the email thread</span>
+    <ul>
+      <li>their question was specifically about turnaround time, not price.</li>
+      <li>the 3-day figure is real: it&rsquo;s what the last two jobs actually took.</li>
+      <li>nothing here commits you to a discount you didn&rsquo;t offer.</li>
+    </ul>
+  </div>
+
+  <section>
+    <span class="mono">the message</span>
+    <details>
+      <summary>open to read (optional)</summary>
+      <p class="draft">hey — good question. turnaround is 3 working days from the moment you send the files. that&rsquo;s not a best case, it&rsquo;s what the last two runs actually took. if that works, send them over today and i&rsquo;ll confirm the slot.</p>
+    </details>
+    <div class="copyrow">
+      <button data-copy="#draft-src">copy without opening</button>
+      <span class="note">then paste it into the email thread.</span>
+    </div>
+    <textarea id="draft-src" style="position:absolute;left:-9999px" aria-hidden="true">hey — good question. turnaround is 3 working days from the moment you send the files. that's not a best case, it's what the last two runs actually took. if that works, send them over today and i'll confirm the slot.</textarea>
+  </section>
+
+  <section>
+    <span class="mono">what this is built on</span>
+    <table>
+      <tr><th>email thread</th><td>their exact question. the reply answers it directly, no drift.</td></tr>
+      <tr><th>last two job logs</th><td>where the &ldquo;3 working days&rdquo; number comes from. it&rsquo;s a fact, not a promise you&rsquo;re inventing.</td></tr>
+      <tr><th>your rate sheet</th><td>confirms you didn&rsquo;t quietly undercut yourself to close.</td></tr>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <span class="mono">finish · ten minutes</span>
+    <ol class="finish">
+      <li><a class="cta" href="#" target="_blank" rel="noopener">open the email</a> &nbsp;(that&rsquo;s the hard part done)</li>
+      <li>read the three verified lines above. that is the whole verification.</li>
+      <li>confirm the 3-day figure still holds for this week.</li>
+      <li>paste the message. <span class="send">hit send.</span></li>
+      <li>tell whoever&rsquo;s holding you accountable: &ldquo;fired.&rdquo;</li>
+    </ol>
+  </section>
+
+  <p class="time mono">ten minutes. one screen. then it&rsquo;s out of the building.</p>
+
+</div>
+<script>
+  document.querySelectorAll('button[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var src = document.querySelector(b.getAttribute('data-copy'));
+      if (!src) return;
+      src.select();
+      navigator.clipboard.writeText(src.value).then(function () {
+        var t = b.textContent; b.textContent = 'copied';
+        setTimeout(function () { b.textContent = t; }, 1400);
+      });
+    });
+  });
+</script>
+</body>
+</html>

@@ -6,7 +6,9 @@ Not a template for writing the message. AI already writes a perfect draft in 3 s
 
 A fire page closes that gap. It's a one-screen memo where the verification is already done and stamped, the draft is copy-without-opening, your personal checks are a short bounded list, and the **last step is the send itself.**
 
-Open [`example.html`](example.html) to see a filled one. Copy [`template.html`](template.html) to make your own.
+**See it live:** [phuaky.github.io/firepage](https://phuaky.github.io/firepage/) — that's a real fire page, filled in.
+
+Copy [`template.html`](template.html) to make your own.
 
 ## Why drafts don't get sent
 
