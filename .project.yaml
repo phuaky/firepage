@@ -1,0 +1,8 @@
+name: "firepage"
+type: side-project
+status: active
+public: true
+category: tool
+description: "One HTML page that gets a drafted-but-unsent message out the door. The send-memo / fire-page pattern."
+tags: ["html", "productivity", "workflow", "ai"]
+started: "2026-07-09"

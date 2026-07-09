@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>fire page — template</title>
+<style>
+  :root {
+    --paper: #f6f3ec;
+    --ink: #1f1d1a;
+    --muted: #6b665d;
+    --line: #d9d3c6;
+    --accent: #9a3b26;
+    --ok: #3f6b3a;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 17px/1.55 Charter, Georgia, "Times New Roman", serif;
+    text-rendering: optimizeLegibility;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 48px 24px 96px; }
+  h1 { font-size: 26px; font-weight: 700; margin: 0 0 4px; text-wrap: balance; }
+  .lede { color: var(--muted); text-wrap: pretty; margin: 0 0 28px; }
+  .mono { font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
+
+  .stamp {
+    border: 1px solid var(--line);
+    background: #fffdf8;
+    padding: 14px 16px;
+    margin: 0 0 28px;
+  }
+  .stamp .mono { color: var(--ok); }
+  .stamp ul { margin: 8px 0 0; padding-left: 18px; }
+  .stamp li { margin: 2px 0; }
+
+  section { margin: 0 0 28px; }
+  section > .mono { display: block; margin-bottom: 8px; }
+
+  details {
+    border: 1px solid var(--line);
+    background: #fffdf8;
+    padding: 0 16px;
+  }
+  summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 14px 0;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--muted); font-weight: 400; }
+  details[open] summary::after { content: "\2013"; }
+  details[open] .draft { padding-bottom: 16px; }
+  .draft { white-space: pre-wrap; font-family: inherit; }
+
+  button {
+    font: inherit;
+    font-size: 14px;
+    background: var(--ink);
+    color: var(--paper);
+    border: 0;
+    padding: 8px 14px;
+    cursor: pointer;
+  }
+  button.ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  button:active { opacity: .8; }
+  .copyrow { display: flex; gap: 8px; align-items: center; margin: 10px 0 0; }
+  .copyrow .note { color: var(--muted); font-size: 14px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 4px 0 0; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  th { width: 34%; font-weight: 700; }
+  td { color: var(--muted); }
+
+  .finish { border: 1px solid var(--ink); padding: 8px 18px; }
+  .finish li { margin: 12px 0; }
+  .finish .cta { display: inline-block; border: 1px solid var(--ink); padding: 6px 12px; text-decoration: none; color: var(--ink); font-weight: 700; }
+  .finish .send { color: var(--accent); font-weight: 700; }
+
+  .time { text-align: center; color: var(--muted); margin-top: 40px; }
+
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #201e1b; --ink: #ece7dd; --muted: #9a948a; --line: #38352f; --accent: #d98b6f; --ok: #8bbf84; }
+    .stamp, details { background: #262320; }
+    .finish .cta { color: var(--ink); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>fire page</h1>
+  <p class="lede">one message. verification already done. the last step is the send.</p>
+
+  <!-- 1. VERIFICATION, PRE-PAID AND STAMPED -->
+  <div class="stamp">
+    <span class="mono">verified · [date] · source: [thread / file]</span>
+    <ul>
+      <li>[claim 1 you checked — e.g. their name + role are correct]</li>
+      <li>[claim 2 — e.g. the number/date/link is right]</li>
+      <li>[claim 3 — e.g. nothing here contradicts the last message]</li>
+    </ul>
+  </div>
+
+  <!-- 2 + 3. THE DRAFT: COLLAPSED, COPY WITHOUT OPENING -->
+  <section>
+    <span class="mono">the message</span>
+    <details>
+      <summary>open to read (optional)</summary>
+      <p class="draft">[paste your drafted message here. it stays collapsed on purpose. you don't need to re-read it to send it.]</p>
+    </details>
+    <div class="copyrow">
+      <button data-copy="#draft-src">copy without opening</button>
+      <span class="note">then paste it into the real thread.</span>
+    </div>
+    <textarea id="draft-src" style="position:absolute;left:-9999px" aria-hidden="true">[paste your drafted message here.]</textarea>
+  </section>
+
+  <!-- WHY YOU CAN STAND BEHIND IT: files and why each one matters -->
+  <section>
+    <span class="mono">what this is built on</span>
+    <table>
+      <tr><th>[file / source 1]</th><td>[why it matters — what it proves or where a claim came from]</td></tr>
+      <tr><th>[file / source 2]</th><td>[why it matters]</td></tr>
+      <tr><th>[file / source 3]</th><td>[why it matters]</td></tr>
+    </table>
+  </section>
+
+  <hr>
+
+  <!-- 4 + 5 + 6. BOUNDED FINISH CHECKLIST, ONE SCREEN, ENDS IN THE SEND -->
+  <section>
+    <span class="mono">finish · ten minutes</span>
+    <ol class="finish">
+      <li><a class="cta" href="[link to the form / chat / inbox]" target="_blank" rel="noopener">open the thread</a> &nbsp;(trivially easy first step)</li>
+      <li>read the three verified lines above. that is the whole verification.</li>
+      <li>[the one thing only you can attest — e.g. "confirm this is true to the best of my knowledge"]</li>
+      <li>paste the message. <span class="send">hit send.</span></li>
+      <li>tell [your witness] "fired."</li>
+    </ol>
+  </section>
+
+  <p class="time mono">ten minutes. one screen. then it's out of the building.</p>
+
+</div>
+
+<script>
+  // The only JS: one-tap copy. Native everything else.
+  document.querySelectorAll('button[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var src = document.querySelector(b.getAttribute('data-copy'));
+      if (!src) return;
+      src.select();
+      navigator.clipboard.writeText(src.value).then(function () {
+        var t = b.textContent; b.textContent = 'copied';
+        setTimeout(function () { b.textContent = t; }, 1400);
+      });
+    });
+  });
+</script>
+</body>
+</html>
