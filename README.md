@@ -38,7 +38,7 @@ The "what this is built on" table is the part that lets you stand behind it: eve
 
 ## Design
 
-One column, system fonts, two colors plus one accent, native `<details>`, one tiny script for the copy buttons. Document, not marketing page. Works in light and dark. Steal the CSS.
+One column, system fonts, two colors plus one accent, native `<details>`, one tiny script for the copy buttons. Document, not marketing page. Light mode only, on purpose. Steal the CSS.
 
 ## License
 
